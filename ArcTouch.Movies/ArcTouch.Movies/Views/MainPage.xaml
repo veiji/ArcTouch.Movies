@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ArcTouch.Movies.Views.MainPage"
+             xmlns:partials="clr-namespace:ArcTouch.Movies.Views.Partials"
+             xmlns:controls="clr-namespace:ArcTouch.Movies.Helpers.Controls"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             IsBusy="{Binding IsBusy}">
+    <NavigationPage.TitleView>
+        <partials:MainTitle HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ></partials:MainTitle>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid>
+            <controls:CustomListView ItemsSource="{Binding Movies}" LoadCommand="{Binding LoadCommand}"
+                                     ItemTappedCommand="{Binding NavigateToMovieCommand}"
+                                     VerticalOptions="FillAndExpand" RowHeight="130">
+                <controls:CustomListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="0,10" ColumnSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <ffimageloading:CachedImage HorizontalOptions="Center" VerticalOptions="FillAndExpand" HeightRequest="120" 
+			                        DownsampleToViewSize="true"
+			                        Source = "{Binding FullPosterPath}">
+                                </ffimageloading:CachedImage>
+                                <StackLayout Grid.Column="1" Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+                                    <Label Grid.Column="1" Text="{Binding Title}" TextColor="Black" FontSize="14"></Label>
+                                    <Label Grid.Column="1" Text="{Binding Genre}" FontSize="13"></Label>
+                                </StackLayout>
+                                <Label Grid.Column="1" Text="{Binding ReleaseDateFormatted}" FontSize="12" VerticalOptions="End">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Release: " />
+                                            <Span Text="{Binding Path=ReleaseDateFormatted, Mode=OneWay}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>                                
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </controls:CustomListView.ItemTemplate>
+            </controls:CustomListView>
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" VerticalOptions="Center" HorizontalOptions="Center"></ActivityIndicator>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

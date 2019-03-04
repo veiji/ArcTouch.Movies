@@ -29,7 +29,15 @@ namespace ArcTouch.Movies.Models
         [JsonIgnore]
         public string FullBackdropPath { get; set; }
 
-        public string ReleaseDateFormatted => DateTime.Parse(ReleaseDate).ToString("MMM dd yyyy");
+        public string ReleaseDateFormatted
+        {
+            get
+            {
+                if(DateTime.TryParse(ReleaseDate, out DateTime release))
+                    return release.ToString("MMM dd yyyy");
+                return string.Empty;
+            }
+        }
 
     }
 

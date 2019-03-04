@@ -15,6 +15,7 @@ namespace ArcTouch.Movies
 
             NavigationService.Configure(Constants.MAINPAGE, typeof(MainPage));
             NavigationService.Configure(Constants.DETAILSPAGE, typeof(MovieDetails));
+            NavigationService.Configure(Constants.SEARCHPAGE, typeof(SearchMovies));
 
             MainPage = ((ViewNavigationService)NavigationService).SetRootPage(Constants.MAINPAGE);
         }

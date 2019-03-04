@@ -97,6 +97,15 @@ namespace ArcTouch.Movies {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://api.themoviedb.org/3/search/movie?page={0}&amp;api_key={1}&amp;language=en-US&amp;query={2}.
+        /// </summary>
+        internal static string GetSearchMoviesUrl {
+            get {
+                return ResourceManager.GetString("GetSearchMoviesUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to https://api.themoviedb.org/3/movie/upcoming?page={0}&amp;language=en-US&amp;api_key={1}.
         /// </summary>
         internal static string GetUpcomingMoviesUrl {

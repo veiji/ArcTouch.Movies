@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ArcTouch.Movies.Views.SearchMovies"
+             xmlns:controls="clr-namespace:ArcTouch.Movies.Helpers.Controls"
+             IsBusy="{Binding IsBusy}">
+    <NavigationPage.TitleView>
+        <SearchBar x:Name="SearchBar" Placeholder="Movie title"  SearchCommand="{Binding SearchCommand}" SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}"
+                  CancelButtonColor="White" TextColor="White" HorizontalOptions="FillAndExpand"></SearchBar>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid>
+            <controls:CustomListView ItemsSource="{Binding Movies}" LoadCommand="{Binding LoadCommand}"
+                                     ItemTappedCommand="{Binding NavigateToMovieCommand}"
+                                     VerticalOptions="FillAndExpand" RowHeight="130" ItemTemplate="{StaticResource MovieItemTemplate}">
+            </controls:CustomListView>
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" VerticalOptions="Center" HorizontalOptions="Center"></ActivityIndicator>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -2,7 +2,7 @@
 
 namespace ArcTouch.Movies.Models.Messages
 {
-    public class GetUpcomingResponse
+    public class GetMoviesResponse
     {
         public int Page { get; set; }
         public List<Movie> Results { get; set; }

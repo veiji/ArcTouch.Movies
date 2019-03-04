@@ -6,7 +6,7 @@
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <RelativeLayout>
-            <ScrollView>
+            <ScrollView RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
                 <RelativeLayout VerticalOptions="FillAndExpand">
 
                     <ffimageloading:CachedImage x:Name="BackdropImage" HeightRequest="205" Aspect="Fill"

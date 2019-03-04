@@ -13,5 +13,6 @@ namespace ArcTouch.Movies.Helpers
 
         public const string DETAILSPAGE = "MovieDetails";
         public const string MAINPAGE = "MainPage";
+        public const string SEARCHPAGE = "SearchPage";
     }
 }

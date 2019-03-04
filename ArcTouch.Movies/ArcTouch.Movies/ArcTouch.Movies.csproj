@@ -22,7 +22,6 @@
   <ItemGroup>
     <Folder Include="Helpers\Communication\" />
     <Folder Include="Helpers\Controls\" />
-    <Folder Include="Models\Messages\" />
     <Folder Include="Repository\" />
   </ItemGroup>
 
@@ -46,7 +45,7 @@
     <EmbeddedResource Update="Views\MovieDetails.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Partials\MainTitle.xaml">
+    <EmbeddedResource Update="Views\SearchMovies.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

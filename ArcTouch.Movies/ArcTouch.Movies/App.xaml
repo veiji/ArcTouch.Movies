@@ -1,8 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="ArcTouch.Movies.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="MovieItemTemplate">
+                <ViewCell>
+                    <Grid Margin="0,10" ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
 
+                        <ffimageloading:CachedImage HorizontalOptions="Center" VerticalOptions="FillAndExpand" HeightRequest="120" 
+			                        DownsampleToViewSize="true"
+			                        Source = "{Binding FullPosterPath}">
+                        </ffimageloading:CachedImage>
+                        <StackLayout Grid.Column="1" Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+                            <Label Grid.Column="1" Text="{Binding Title}" TextColor="Black" FontSize="14"></Label>
+                            <Label Grid.Column="1" Text="{Binding Genre}" FontSize="13"></Label>
+                        </StackLayout>
+                        <Label Grid.Column="1" Text="{Binding ReleaseDateFormatted}" FontSize="12" VerticalOptions="End">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Release: " />
+                                    <Span Text="{Binding Path=ReleaseDateFormatted, Mode=OneWay}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

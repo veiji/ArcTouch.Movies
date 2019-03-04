@@ -3,6 +3,7 @@ using ArcTouch.Movies.Helpers.Communication;
 using ArcTouch.Movies.Helpers.Navigation;
 using ArcTouch.Movies.Models;
 using ArcTouch.Movies.Models.Messages;
+using ArcTouch.Movies.Properties;
 using ArcTouch.Movies.Repository;
 using System;
 using System.Collections.Generic;
@@ -55,7 +56,7 @@ namespace ArcTouch.Movies.ViewModels
             {
                 IsBusy = true;
 
-                var response = await Request.GetAsync<GetMoviesResponse>(string.Format(Resources.GetUpcomingMoviesUrl, CurrentPage,Resources.ApiKey));
+                var response = await Request.GetAsync<GetMoviesResponse>(string.Format(Configurations.GetUpcomingMoviesUrl, CurrentPage, Configurations.ApiKey));
 
                 foreach (var item in response.Results)
                     Movies.Add(FillMovie(item,GenreCache));
@@ -82,7 +83,7 @@ namespace ArcTouch.Movies.ViewModels
                 }
                 else
                 {
-                    var genres = await Request.GetAsync<GetGenresResponse>(string.Format(Resources.GetGenresUrl, Resources.ApiKey));
+                    var genres = await Request.GetAsync<GetGenresResponse>(string.Format(Configurations.GetGenresUrl, Configurations.ApiKey));
                     await moviesRepository.AddGenresAsync(genres.Genres);
                     return genres.Genres;
                 }
@@ -101,7 +102,7 @@ namespace ArcTouch.Movies.ViewModels
             {
                 try
                 {
-                    var imageConfig = await Request.GetAsync<GetConfigResponse>(string.Format(Resources.GetConfigurationsUrl, Resources.ApiKey));
+                    var imageConfig = await Request.GetAsync<GetConfigResponse>(string.Format(Configurations.GetConfigurationsUrl, Configurations.ApiKey));
                     Preferences.Set(Constants.IMAGEBASEURL, imageConfig.Images.BaseUrl);
                     Preferences.Set(Constants.LISTPOSTERSIZE, imageConfig.Images.PosterSizes[3]);
                     Preferences.Set(Constants.BACKDROPSIZE, imageConfig.Images.BackdropSizes[2]);

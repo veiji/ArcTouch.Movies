@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using ArcTouch.Movies.Helpers.Communication;
+﻿using ArcTouch.Movies.Helpers.Communication;
 using ArcTouch.Movies.Helpers.Navigation;
 using ArcTouch.Movies.Models.Messages;
+using ArcTouch.Movies.Properties;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace ArcTouch.Movies.ViewModels
@@ -40,7 +40,7 @@ namespace ArcTouch.Movies.ViewModels
             {
                 IsBusy = true;
 
-                var response = await Request.GetAsync<GetMoviesResponse>(string.Format(Resources.GetSearchMoviesUrl, CurrentPage, Resources.ApiKey, titleToSearch));
+                var response = await Request.GetAsync<GetMoviesResponse>(string.Format(Configurations.GetSearchMoviesUrl, CurrentPage, Configurations.ApiKey, titleToSearch));
 
                 foreach (var item in response.Results)
                     Movies.Add(FillMovie(item, GenreCache));

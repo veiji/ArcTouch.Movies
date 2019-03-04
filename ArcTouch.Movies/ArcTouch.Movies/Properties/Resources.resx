@@ -120,21 +120,6 @@
   <data name="Alert" xml:space="preserve">
     <value>Alert</value>
   </data>
-  <data name="ApiKey" xml:space="preserve">
-    <value>1f54bd990f1cdfb230adb312546d765d</value>
-  </data>
-  <data name="GetConfigurationsUrl" xml:space="preserve">
-    <value>https://api.themoviedb.org/3/configuration?api_key={0}</value>
-  </data>
-  <data name="GetGenresUrl" xml:space="preserve">
-    <value>https://api.themoviedb.org/3/genre/movie/list?api_key={0}&amp;language=en-US</value>
-  </data>
-  <data name="GetSearchMoviesUrl" xml:space="preserve">
-    <value>https://api.themoviedb.org/3/search/movie?page={0}&amp;api_key={1}&amp;language=en-US&amp;query={2}</value>
-  </data>
-  <data name="GetUpcomingMoviesUrl" xml:space="preserve">
-    <value>https://api.themoviedb.org/3/movie/upcoming?page={0}&amp;language=en-US&amp;api_key={1}</value>
-  </data>
   <data name="Ok" xml:space="preserve">
     <value>Ok</value>
   </data>

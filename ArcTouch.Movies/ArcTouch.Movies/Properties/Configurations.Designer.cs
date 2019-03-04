@@ -61,7 +61,7 @@ namespace ArcTouch.Movies.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1f54bd990f1cdfb230adb312546d765d.
+        ///   Looks up a localized string similar to put your api key.
         /// </summary>
         internal static string ApiKey {
             get {

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ApiKey" xml:space="preserve">
-    <value>1f54bd990f1cdfb230adb312546d765d</value>
+    <value>put your api key</value>
   </data>
   <data name="GetConfigurationsUrl" xml:space="preserve">
     <value>https://api.themoviedb.org/3/configuration?api_key={0}</value>

@@ -5,36 +5,46 @@
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <ScrollView>
-            <RelativeLayout VerticalOptions="FillAndExpand">
-                <ffimageloading:CachedImage x:Name="BackdropImage" HeightRequest="205" Aspect="Fill"
+        <RelativeLayout>
+            <ScrollView>
+                <RelativeLayout VerticalOptions="FillAndExpand">
+
+                    <ffimageloading:CachedImage x:Name="BackdropImage" HeightRequest="205" Aspect="Fill"
 			                        DownsampleToViewSize="False" Source = "{Binding Movie.FullBackdropPath}"
                                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" >
-                </ffimageloading:CachedImage>
-                <BoxView HeightRequest="125" x:Name="BoxTitles" BackgroundColor="#212121" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                    </ffimageloading:CachedImage>
+                    <BoxView HeightRequest="125" x:Name="BoxTitles" BackgroundColor="#212121" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
                          RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,ElementName=BackdropImage,Property=Height, Factor=1, Constant = 0}"></BoxView>
-                <ffimageloading:CachedImage x:Name="PosterImage" DownsampleToViewSize="true" Source="{Binding Movie.FullPosterPath}"
+                    <ffimageloading:CachedImage x:Name="PosterImage" DownsampleToViewSize="true" Source="{Binding Movie.FullPosterPath}"
                     HeightRequest="155" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=X, Factor=1, Constant = 15}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,ElementName=BoxTitles, Factor=1, Property=Y, Constant=-40}">
-                </ffimageloading:CachedImage>
-                <StackLayout Orientation="Vertical" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,ElementName=BoxTitles,Property=Y, Factor=1, Constant = 5}"
+                    </ffimageloading:CachedImage>
+                    <StackLayout Orientation="Vertical" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,ElementName=BoxTitles,Property=Y, Factor=1, Constant = 5}"
                              RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,ElementName=BoxTitles,Property=X, Factor=1, Constant = 130}"
                              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0.60,Constant=0}">
-                    <Label Grid.Column="1" Text="{Binding Movie.Title}" TextColor="White" FontSize="Medium" FontAttributes="Bold"></Label>
-                    <Label Grid.Column="1" Text="{Binding Movie.Genre}" FontSize="Small" TextColor="LightGray"></Label>
-                </StackLayout>
-                <Label FontSize="12" TextColor="LightGray" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,ElementName=BoxTitles,Property=Y, Factor=1, Constant = 100}"
+                        <Label Grid.Column="1" Text="{Binding Movie.Title}" TextColor="White" FontSize="Medium" FontAttributes="Bold"></Label>
+                        <Label Grid.Column="1" Text="{Binding Movie.Genre}" FontSize="Small" TextColor="LightGray"></Label>
+                    </StackLayout>
+                    <Label FontSize="12" TextColor="LightGray" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,ElementName=BoxTitles,Property=Y, Factor=1, Constant = 100}"
                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,ElementName=BoxTitles,Property=X, Factor=1, Constant = 130}">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="Release: " />
-                            <Span Text="{Binding Path=Movie.ReleaseDateFormatted, Mode=OneWay}"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Label Text="{Binding Movie.Overview}" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="18,15" 
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Release: " />
+                                <Span Text="{Binding Path=Movie.ReleaseDateFormatted, Mode=OneWay}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Text="{Binding Movie.Overview}" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="18,15" 
                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,ElementName=BoxTitles,Property=Y, Factor=1, Constant = 125}"></Label>
-            </RelativeLayout>
+                </RelativeLayout>
 
-        </ScrollView>
+            </ScrollView>
+            <Image Source="arrowback.png" WidthRequest="25" HeightRequest="25" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Y, Factor=1, Constant = 15}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=X, Factor=1, Constant = 15}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackCmd}"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>            
+        </RelativeLayout>
+
   </ContentPage.Content>
 </ContentPage>

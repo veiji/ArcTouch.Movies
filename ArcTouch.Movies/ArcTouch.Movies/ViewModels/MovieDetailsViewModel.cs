@@ -2,6 +2,8 @@
 using ArcTouch.Movies.Models;
 using System;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace ArcTouch.Movies.ViewModels
 {
@@ -11,11 +13,19 @@ namespace ArcTouch.Movies.ViewModels
         {
         }
 
+        ICommand backCmd;
+        public ICommand BackCmd => backCmd ?? (backCmd = new Command(GoBack));
+
         private Movie movie;
         public Movie Movie
         {
             get => movie; 
             set { SetProperty<Movie>(ref movie,value); }
+        }
+
+        private void GoBack()
+        {
+            Navigation.GoBack();
         }
     }
 }

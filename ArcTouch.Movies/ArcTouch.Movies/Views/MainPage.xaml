@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ArcTouch.Movies.Views.MainPage"
+             xmlns:controls="clr-namespace:ArcTouch.Movies.Helpers.Controls"             
+             IsBusy="{Binding IsBusy}">
+    <NavigationPage.TitleView>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.ColumnSpan="2" Text="Upcoming Movies" TextColor="#FFF" FontSize="Medium"
+                HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="Start" />
+            <Image Grid.Column="1" Source="search.png" HeightRequest="35" WidthRequest="35" Margin="15,0" HorizontalOptions="End">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SearchCommand}"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid>
+            <controls:CustomListView ItemsSource="{Binding Movies}" LoadCommand="{Binding LoadCommand}"
+                                     ItemTappedCommand="{Binding NavigateToMovieCommand}"
+                                     VerticalOptions="FillAndExpand" RowHeight="130" ItemTemplate="{StaticResource MovieItemTemplate}">
+            </controls:CustomListView>
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" VerticalOptions="Center" HorizontalOptions="Center"></ActivityIndicator>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

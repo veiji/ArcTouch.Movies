@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using ArcTouch.Movies.Models;
+using ArcTouch.Movies.ViewModels;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace ArcTouch.Movies.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MovieDetails : ContentView
+    public partial class MovieDetails : ContentPage
 	{
-		public MovieDetails ()
+		public MovieDetails(Movie movie)
 		{
 			InitializeComponent ();
-		}
+
+            MovieDetailsViewModel vm = new MovieDetailsViewModel(App.NavigationService, DisplayAlert)
+            {
+                Movie = movie
+            };
+            this.BindingContext = vm;
+        }
 	}
 }

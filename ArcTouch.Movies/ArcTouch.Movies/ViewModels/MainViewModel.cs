@@ -135,6 +135,7 @@ namespace ArcTouch.Movies.ViewModels
                     var imageConfig = await requestHelper.GetAsync<GetConfigResponse>(string.Format(Resources.GetConfigurationsUrl, Resources.ApiKey));
                     Preferences.Set(Constants.IMAGEBASEURL, imageConfig.Images.BaseUrl);
                     Preferences.Set(Constants.LISTPOSTERSIZE, imageConfig.Images.PosterSizes[3]);
+                    Preferences.Set(Constants.BACKDROPSIZE, imageConfig.Images.BackdropSizes[2]);
                 }
                 catch (Exception ex)
                 {

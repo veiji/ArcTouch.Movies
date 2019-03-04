@@ -8,7 +8,7 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition Width="50"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Grid.ColumnSpan="2" Text="Upcoming Movies" TextColor="#FFF" FontSize="Medium" 
+            <Label Grid.ColumnSpan="2" Text="Upcoming Movies" TextColor="#FFF" FontSize="Medium"
                 HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="Start" />
         </Grid>
   </ContentView.Content>

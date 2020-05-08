@@ -1,2 +1,2 @@
 # ArcTouch.Movies
-Simple Xamarin.Forms App to list and see details of some movies. 1
+Simple Xamarin.Forms App to list and see details of some movies. 
